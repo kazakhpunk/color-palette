@@ -3,12 +3,27 @@
     flex-direction: column;
     align-items: center;
 }
-
+html {
+    background-image: url("universe.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
 #color-preview {
     width: 100px;
     height: 100px;
     border: 1px solid #000;
     margin-bottom: 20px;
+}
+label, p, h1{
+    display: block;
+    width: max-content; /* или конкретное значение, например, 200px */
+    padding: .25em 0;
+    background: hsla(0, 4%, 37%, 60%);
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .sliders {
@@ -26,7 +41,6 @@
 .text-inputs {
     margin-top: 20px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
 }
 

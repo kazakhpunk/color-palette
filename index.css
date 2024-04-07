@@ -1,5 +1,35 @@
+.color-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #color-preview {
     width: 100px;
     height: 100px;
     border: 1px solid #000;
-  }
+    margin-bottom: 20px;
+}
+
+.sliders {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-inputs {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text-inputs input {
+    text-align: center;
+}

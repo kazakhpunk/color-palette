@@ -1,22 +1,50 @@
-.color-picker {
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-html {
     background-image: url("universe.jpg");
-    height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
 }
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.sidebar {
+    float: left; /* Moves the sidebar to the right */
+    margin-left: 20px;
+    margin-right: 50px;
+}
+
+.color-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto; /* Centers the color picker */
+}
+
+.text {
+    margin-left: 50px;
+}
+
+.palette-title {
+    text-align: center;
+}
+
 #color-preview {
     width: 100px;
     height: 100px;
     border: 1px solid #000;
     margin-bottom: 20px;
 }
-label, p, h1{
+label, p, h1, input, button, h2{
     display: block;
     width: max-content; /* или конкретное значение, например, 200px */
     padding: .25em 0;
@@ -24,6 +52,12 @@ label, p, h1{
     color: white;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+
+
+button {
+    display: inline;
 }
 
 .sliders {
@@ -46,4 +80,62 @@ label, p, h1{
 
 .text-inputs input {
     text-align: center;
+    background: hsla(0, 4%, 37%, 60%);
+}
+
+.buttons-for-palette {
+    display: flex; 
+    gap: 0; 
+    flex-direction: row; 
+    justify-content: center; 
+    margin-top: 20px; 
+    margin-bottom: 20px;
+}
+
+.buttons-for-palette button {
+    display: flex;
+    justify-content: space-between; /* Spread the buttons */
+    width: 100%; /* Take up full width from hex to hsl */
+    border: 1px solid hsla(0, 4%, 37%, 60%); /* Gray border as requested */
+    flex: 1; 
+    padding: 10px 50px; 
+
+    white-space: nowrap;
+    background: hsla(0, 4%, 37%, 60%);
+    color: white; 
+    cursor: pointer; 
+}
+
+
+.palettes-box {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 3 columns of equal width */
+    grid-gap: 10px; /* Space between palettes */
+  }
+  
+  .palette {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Optional: if you want rounded corners */
+    overflow: hidden;
+    aspect-ratio: 1;
+    flex-wrap: wrap;
+    min-width: 60px;
+  }
+  
+  .color-sample {
+    width: 50%; /* 50% for a square layout */
+    height: 50%; /* Same as width to maintain aspect ratio */
+    float: left; /* Align samples in a row */
+  }
+
+  footer.created-palettes {
+    width: 100%; /* Full width */
+    /* Other footer styles */
+}
+.palette-title {
+    text-align: center;
+    margin-bottom: 20px; /* Spacing between the title and the palettes */
+    margin-left: auto;
+    margin-right: auto; 
 }

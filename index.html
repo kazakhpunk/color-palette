@@ -6,11 +6,91 @@
     <title>Color Palette</title>
 </head>
 <body>
-    <h1>Color Palette</h1>
-    <p><i>"Color is the place where our brain and the universe meet", Paul Klee</i></p>
-    <p><i>Created by Nursultan Sagyntay</i></p>
-
-    <div class="color-picker">
+    <div class = "content-wrapper">
+        <div class = "text">
+            <h1>Color Palette</h1>
+            <p><i>"Color is the place where our brain and the universe meet", Paul Klee</i></p>
+            <p><i>Created by Nursultan Sagyntay</i></p>
+        </div>
+        <aside class = "sidebar">
+            <h2 class = "palette-title">Premade Palettes</h2>
+            <div class = "palettes-box">
+                <div class="palette" onclick="selectPalette('palette1')">
+                    <div class="color-sample" style="background-color: rgb(255,0,0);"></div>
+                    <div class="color-sample" style="background-color: rgb(0, 255,0);"></div>
+                    <div class="color-sample" style="background-color: rgb(0,0,255);"></div>
+                    <div class="color-sample" style="background-color: rgb(255, 0, 255);"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette2')">
+                    <div class="color-sample" style="background-color: #1C1678;"></div>
+                    <div class="color-sample" style="background-color: #8576FF;"></div>
+                    <div class="color-sample" style="background-color: #7BC9FF;"></div>
+                    <div class="color-sample" style="background-color: #A3FFD6;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette3')">
+                    <div class="color-sample" style="background-color: #DBA979;"></div>
+                    <div class="color-sample" style="background-color: #ECCA9C;"></div>
+                    <div class="color-sample" style="background-color: #E8EFCF;"></div>
+                    <div class="color-sample" style="background-color: #AFD198;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette4')">
+                    <div class="color-sample" style="background-color: #6C0345;"></div>
+                    <div class="color-sample" style="background-color: #DC6B19;"></div>
+                    <div class="color-sample" style="background-color: #F7C566;"></div>
+                    <div class="color-sample" style="background-color: #FFF8DC;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette5')">
+                    <div class="color-sample" style="background-color: #003C43;"></div>
+                    <div class="color-sample" style="background-color: #135D66;"></div>
+                    <div class="color-sample" style="background-color: #77B0AA;"></div>
+                    <div class="color-sample" style="background-color: #E3FEF7;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette6')">
+                    <div class="color-sample" style="background-color: #A79277;"></div>
+                    <div class="color-sample" style="background-color: #D1BB9E;"></div>
+                    <div class="color-sample" style="background-color: #EAD8C0;"></div>
+                    <div class="color-sample" style="background-color: #FFF2E1;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette7')">
+                    <div class="color-sample" style="background-color: #FFEBB2;"></div>
+                    <div class="color-sample" style="background-color: #E59BE9;"></div>
+                    <div class="color-sample" style="background-color: #D862BC;"></div>
+                    <div class="color-sample" style="background-color: #8644A2;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette8')">
+                    <div class="color-sample" style="background-color: #86469C;"></div>
+                    <div class="color-sample" style="background-color: #BC7FCD;"></div>
+                    <div class="color-sample" style="background-color: #FB9AD1;"></div>
+                    <div class="color-sample" style="background-color: #FFCDEA;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette9')">
+                    <div class="color-sample" style="background-color: #A34343;"></div>
+                    <div class="color-sample" style="background-color: #E9C874;"></div>
+                    <div class="color-sample" style="background-color: #FBF8DD;"></div>
+                    <div class="color-sample" style="background-color: #C0D6E8;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette10')">
+                    <div class="color-sample" style="background-color: #FFF7FC;"></div>
+                    <div class="color-sample" style="background-color: #8B93FF;"></div>
+                    <div class="color-sample" style="background-color: #5755FE;"></div>
+                    <div class="color-sample" style="background-color: #FF71CD;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette11')">
+                    <div class="color-sample" style="background-color: #FFAF45;"></div>
+                    <div class="color-sample" style="background-color: #FB6D48;"></div>
+                    <div class="color-sample" style="background-color: #D74B76;"></div>
+                    <div class="color-sample" style="background-color: #673F69;"></div>
+                </div>
+                <div class="palette" onclick="selectPalette('palette12')">
+                    <div class="color-sample" style="background-color: #FFF67E;"></div>
+                    <div class="color-sample" style="background-color: #BFEA7C;"></div>
+                    <div class="color-sample" style="background-color: #9BCF53;"></div>
+                    <div class="color-sample" style="background-color: #416D19;"></div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <main class="color-picker">
         <div id="color-preview" style="background-color: rgb(255, 0, 0);"></div>
         <div class="sliders">
             <div class="slider-container">
@@ -31,7 +111,11 @@
             <input type="text" id="rgb" name="rgb" value="rgb(255, 0, 0)">
             <input type="text" id="hsl" name="hsl" value="hsl(0, 100%, 50%)">
         </div>
-    </div>
+        <div class = "buttons-for-palette">
+            <button id = "add-button" name = "add-button" onclick = "save()">Add a color</button> 
+            <button id = "reset-button" name = "reset-button" onclick = "reset()">Reset a color</button> 
+        </div>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>

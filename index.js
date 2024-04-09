@@ -118,6 +118,10 @@ function updateInterface(h, s, l) {
     document.getElementById('hex').value = hexColor;
 }
 
+function reset() {
+    updateInterface(0, 100, 50);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.color-picker input[type=range]').forEach(input => {
         input.addEventListener('input', () => {

@@ -1,7 +1,5 @@
 html, body {
     height: 100%; 
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     background-image: url("universe.jpg");
@@ -19,15 +17,13 @@ html, body {
 
 .sidebar {
     float: left; /* Moves the sidebar to the right */
-    margin-left: 20px;
     margin-right: 50px;
 }
 
-.color-picker {
+main {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px auto; /* Centers the color picker */
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .text {
@@ -38,27 +34,34 @@ html, body {
     text-align: center;
 }
 
-#color-preview {
-    width: 100px;
-    height: 100px;
-    border: 1px solid #000;
-    margin-bottom: 20px;
-}
+
 label, p, h1, input, button, h2{
     display: block;
     width: max-content; /* или конкретное значение, например, 200px */
     padding: .25em 0;
     background: hsla(0, 4%, 37%, 60%);
     color: white;
-    padding-left: 5px;
-    padding-right: 5px;
+}
+.color-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px;
 }
 
-
-
-button {
-    display: inline;
+.picker-inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+#color-preview {
+    height: 100%;
+    width: auto;
+    border: 1px solid #000;
+    aspect-ratio: 1;
+    margin: 20px;
+ }
+
 
 .sliders {
     display: flex;
@@ -70,12 +73,17 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .text-inputs {
     margin-top: 20px;
     display: flex;
     gap: 10px;
+}
+
+.text-inputs input {
+    padding: 10px;
 }
 
 .text-inputs input {
@@ -89,22 +97,21 @@ button {
     flex-direction: row; 
     justify-content: center; 
     margin-top: 20px; 
-    margin-bottom: 20px;
 }
 
 .buttons-for-palette button {
     display: flex;
-    justify-content: space-between; /* Spread the buttons */
+    justify-content: center; /* Spread the buttons */
     width: 100%; /* Take up full width from hex to hsl */
     border: 1px solid hsla(0, 4%, 37%, 60%); /* Gray border as requested */
     flex: 1; 
-    padding: 10px 50px; 
-
     white-space: nowrap;
     background: hsla(0, 4%, 37%, 60%);
     color: white; 
     cursor: pointer; 
+    padding: 10px;
 }
+
 
 
 .palettes-box {
@@ -129,13 +136,11 @@ button {
     float: left; /* Align samples in a row */
   }
 
-  footer.created-palettes {
-    width: 100%; /* Full width */
-    /* Other footer styles */
-}
+
 .palette-title {
     text-align: center;
     margin-bottom: 20px; /* Spacing between the title and the palettes */
     margin-left: auto;
     margin-right: auto; 
 }
+

@@ -122,6 +122,21 @@ function reset() {
     updateInterface(0, 100, 50);
 }
 
+function selectPalette(hexValue) {
+    document.getElementById('color-preview').style.backgroundColor = hexValue;
+    const { r, g, b } = hexToRgb(hexValue);
+    const { h, s, l } = rgbToHsl(r, g, b);
+    document.getElementById('hue').value = h;
+    
+    document.getElementById('saturation').value = s;
+    document.getElementById('lightness').value = l;
+
+    document.getElementById('hex').value = hexValue;
+    document.getElementById('rgb').value = `rgb(${r}, ${g}, ${b})`;
+    document.getElementById('hsl').value = `hsl(${h}, ${s}%, ${l}%)`;
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.color-picker input[type=range]').forEach(input => {
         input.addEventListener('input', () => {

@@ -47,11 +47,12 @@ label, p, h1, input, button, h2{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 60px;
+    margin: auto;
 }
 
-h1 {
-    margin-left: 30%;
+h1 {         /* Or any desired width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .picker-inputs{
@@ -62,7 +63,7 @@ h1 {
 #color-preview {
     height: 100%;
     width: auto;
-    border: 1px solid #000;
+    border: 1px solid hsla(0, 4%, 37%, 60%);
     aspect-ratio: 1;
     margin: 20px;
  }
@@ -116,8 +117,6 @@ h1 {
     padding: 10px;
 }
 
-
-
 .palettes-box {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 3 columns of equal width */
@@ -152,6 +151,7 @@ h1 {
     justify-content: flex-start;
     margin-left: 50px;
     margin-right: 50px;
+    margin-bottom: 20px;
 }
 
 .stored-palettes {
@@ -177,6 +177,9 @@ h1 {
     border-radius: 5px;
     overflow: hidden;
     aspect-ratio: 1;
-    min-width: 60px; /* Adjust as needed */
-    height: 80px; /* Adjust height as needed to match your storage palette */
+    min-width: 134px; /* Adjust as needed */
+    height: 134px; /* Adjust height as needed to match your storage palette */
+}
+.stored-palettes, .complementary-wrapper {
+    margin-top: auto;
 }

@@ -124,6 +124,9 @@ function updateInterface(hue, saturation, lightness) {
 
     const hexColor = convertHSLToHex(hue, saturation, lightness);
     document.getElementById('hex').value = hexColor;
+
+    updateComplementaryShades(hexColor)
+
 }
 
 function resetColor() {
@@ -143,11 +146,28 @@ function selectPalette(hexValue) {
     document.getElementById('hex').value = hexValue;
     document.getElementById('rgb').value = `rgb(${red}, ${green}, ${blue})`;
     document.getElementById('hsl').value = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+
+    updateComplementaryShades(hexValue);
 }
 
-function storageClick(hexColor) {
-    selectPalette(hexColor);
+function storageClick(hexValue) {
+    console.log(storageValue);
+    selectPalette(hexValue);
 
+}
+
+function complementaryClick(rgbValue) {
+    console.log(rgbValue);
+    const rgbMatch = rgbValue.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    let hexValue = rgbValue;
+    if (rgbMatch) {
+        const r = parseInt(rgbMatch[1], 10);
+        const g = parseInt(rgbMatch[2], 10);
+        const b = parseInt(rgbMatch[3], 10);
+        hexValue = convertRGBToHex(r, g, b);
+    }
+
+    selectPalette(hexValue);
 }
 
 function saveColor() {
@@ -184,6 +204,30 @@ function deleteColor() {
         console.log('No colors to delete.');
     }
 }
+
+function generateComplementaryShades(hue, saturation, lightness) {
+    let complementaryShade1 = (hue + 90) % 360;
+    let complementaryShade2 = (hue + 180) % 360;
+    let complementaryShade3 = (hue + 270) % 360;
+ 
+    return [
+        convertHSLToHex(complementaryShade1, saturation, lightness),
+        convertHSLToHex(complementaryShade2, saturation, lightness),
+        convertHSLToHex(complementaryShade3, saturation, lightness)
+    ];
+}
+
+function updateComplementaryShades(hexValue) {
+    const { red, green, blue } = convertHexToRGB(hexValue);
+    const { hue, saturation, lightness } = convertRGBToHSL(red, green, blue);
+    
+    const complementaryHexShades = generateComplementaryShades(hue, saturation, lightness);
+
+    document.getElementById('complementary1').style.backgroundColor = complementaryHexShades[0];
+    document.getElementById('complementary2').style.backgroundColor = complementaryHexShades[1];
+    document.getElementById('complementary3').style.backgroundColor = complementaryHexShades[2];
+}
+
 
 document.querySelectorAll('.stored-palettes .color').forEach(color => {
     color.addEventListener('click', () => {

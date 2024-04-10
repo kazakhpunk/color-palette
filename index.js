@@ -1,153 +1,210 @@
-function hslToRgb(h, s, l) {
-    s /= 100;
-    l /= 100;
 
-    let c = (1 - Math.abs(2 * l - 1)) * s,
-        x = c * (1 - Math.abs((h / 60) % 2 - 1)),
-        m = l - c / 2,
-        r = 0,
-        g = 0,
-        b = 0;
+function convertHSLToRGB(hue, saturation, lightness) {
+    saturation /= 100;
+    lightness /= 100;
 
-    if (0 <= h && h < 60) {
-        r = c; g = x; b = 0;  
-    } else if (60 <= h && h < 120) {
-        r = x; g = c; b = 0;
-    } else if (120 <= h && h < 180) {
-        r = 0; g = c; b = x;
-    } else if (180 <= h && h < 240) {
-        r = 0; g = x; b = c;
-    } else if (240 <= h && h < 300) {
-        r = x; g = 0; b = c;
-    } else if (300 <= h && h < 360) {
-        r = c; g = 0; b = x;
+    let chroma = (1 - Math.abs(2 * lightness - 1)) * saturation,
+        x = chroma * (1 - Math.abs((hue / 60) % 2 - 1)),
+        m = lightness - chroma / 2,
+        red = 0,
+        green = 0,
+        blue = 0;
+
+    if (0 <= hue && hue < 60) {
+        red = chroma; green = x; blue = 0;  
+    } else if (60 <= hue && hue < 120) {
+        red = x; green = chroma; blue = 0;
+    } else if (120 <= hue && hue < 180) {
+        red = 0; green = chroma; blue = x;
+    } else if (180 <= hue && hue < 240) {
+        red = 0; green = x; blue = chroma;
+    } else if (240 <= hue && hue < 300) {
+        red = x; green = 0; blue = chroma;
+    } else if (300 <= hue && hue < 360) {
+        red = chroma; green = 0; blue = x;
     }
 
-    r = Math.round((r + m) * 255);
-    g = Math.round((g + m) * 255);
-    b = Math.round((b + m) * 255);
+    red = Math.round((red + m) * 255);
+    green = Math.round((green + m) * 255);
+    blue = Math.round((blue + m) * 255);
 
-    return { r, g, b };
+    return { red, green, blue };
 }
 
-function hslToHex(h, s, l) {
-    const { r, g, b } = hslToRgb(h, s, l);
+function convertHSLToHex(hue, saturation, lightness) {
+    const { red, green, blue } = convertHSLToRGB(hue, saturation, lightness);
+    return "#" + [red, green, blue].map(x => {
+        const hex = x.toString(16);
+        return hex.length === 1 ? '0' + hex : hex;
+    }).join('');
+}
+
+function convertHexToRGB(hex) {
+    hex = hex.replace(/^#/, '');
+    const bigint = parseInt(hex, 16);
+    const red = (bigint >> 16) & 255;
+    const green = (bigint >> 8) & 255;
+    const blue = bigint & 255;
+
+    return { red, green, blue };
+}
+
+function convertRGBToHex(r, g, b) {
     return "#" + [r, g, b].map(x => {
         const hex = x.toString(16);
         return hex.length === 1 ? '0' + hex : hex;
     }).join('');
 }
 
-function hexToRgb(hex) {
-    hex = hex.replace(/^#/, '');
-    const bigint = parseInt(hex, 16);
-    const r = (bigint >> 16) & 255;
-    const g = (bigint >> 8) & 255;
-    const b = bigint & 255;
+function convertRGBToHSL(red, green, blue) {
+    red /= 255;
+    green /= 255;
+    blue /= 255;
 
-    return { r, g, b };
-}
-
-function rgbToHsl(r, g, b) {
-    r /= 255;
-    g /= 255;
-    b /= 255;
-
-    const max = Math.max(r, g, b), min = Math.min(r, g, b);
-    let h, s, l = (max + min) / 2;
+    const max = Math.max(red, green, blue), min = Math.min(red, green, blue);
+    let hue, saturation, lightness = (max + min) / 2;
 
     if (max === min) {
-        h = s = 0;
+        hue = saturation = 0;
     } else {
-        const d = max - min;
-        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        const delta = max - min;
+        saturation = lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min);
         switch (max) {
-            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-            case g: h = (b - r) / d + 2; break;
-            case b: h = (r - g) / d + 4; break;
+            case red: hue = (green - blue) / delta + (green < blue ? 6 : 0); break;
+            case green: hue = (blue - red) / delta + 2; break;
+            case blue: hue = (red - green) / delta + 4; break;
         }
-        h /= 6;
+        hue /= 6;
     }
 
-    return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+    return { hue: Math.round(hue * 360), saturation: Math.round(saturation * 100), lightness: Math.round(lightness * 100) };
 }
 
 function updateFromHex() {
     const hexValue = document.getElementById('hex').value;
-    const { r, g, b } = hexToRgb(hexValue);
-    const { h, s, l } = rgbToHsl(r, g, b);
-    updateInterface(h, s, l);
+    const { red, green, blue } = convertHexToRGB(hexValue);
+    const { hue, saturation, lightness } = convertRGBToHSL(red, green, blue);
+    updateInterface(hue, saturation, lightness);
 }
 
-function updateFromRgb() {
+function updateFromRGB() {
     const rgbValue = document.getElementById('rgb').value;
     const parts = rgbValue.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
     if (parts) {
-        const r = parseInt(parts[1], 10);
-        const g = parseInt(parts[2], 10);
-        const b = parseInt(parts[3], 10);
-        const { h, s, l } = rgbToHsl(r, g, b);
-        updateInterface(h, s, l);
+        const red = parseInt(parts[1], 10);
+        const green = parseInt(parts[2], 10);
+        const blue = parseInt(parts[3], 10);
+        const { hue, saturation, lightness } = convertRGBToHSL(red, green, blue);
+        updateInterface(hue, saturation, lightness);
     }
 }
 
-function updateFromHsl() {
+function updateFromHSL() {
     const hslValue = document.getElementById('hsl').value;
     const parts = hslValue.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
     if (parts) {
-        const h = parseInt(parts[1], 10);
-        const s = parseInt(parts[2], 10);
-        const l = parseInt(parts[3], 10);
-        updateInterface(h, s, l);
+        const hue = parseInt(parts[1], 10);
+        const saturation = parseInt(parts[2], 10);
+        const lightness = parseInt(parts[3], 10);
+        updateInterface(hue, saturation, lightness);
     }
 }
 
-function updateInterface(h, s, l) {
-    document.getElementById('hue').value = h;
-    document.getElementById('saturation').value = s;
-    document.getElementById('lightness').value = l;
+function updateInterface(hue, saturation, lightness) {
+    document.getElementById('hue').value = hue;
+    document.getElementById('saturation').value = saturation;
+    document.getElementById('lightness').value = lightness;
 
-    const hslColor = `hsl(${h}, ${s}%, ${l}%)`;
+    const hslColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
     document.getElementById('color-preview').style.backgroundColor = hslColor;
     document.getElementById('hsl').value = hslColor;
 
-    const { r, g, b } = hslToRgb(h, s, l);
-    document.getElementById('rgb').value = `rgb(${r}, ${g}, ${b})`;
+    const { red, green, blue } = convertHSLToRGB(hue, saturation, lightness);
+    document.getElementById('rgb').value = `rgb(${red}, ${green}, ${blue})`;
 
-    const hexColor = hslToHex(h, s, l);
+    const hexColor = convertHSLToHex(hue, saturation, lightness);
     document.getElementById('hex').value = hexColor;
 }
 
-function reset() {
+function resetColor() {
     updateInterface(0, 100, 50);
 }
 
 function selectPalette(hexValue) {
+    console.log("Palette selected:", hexValue); // Debugging line
     document.getElementById('color-preview').style.backgroundColor = hexValue;
-    const { r, g, b } = hexToRgb(hexValue);
-    const { h, s, l } = rgbToHsl(r, g, b);
-    document.getElementById('hue').value = h;
-    
-    document.getElementById('saturation').value = s;
-    document.getElementById('lightness').value = l;
+    const { red, green, blue } = convertHexToRGB(hexValue);
+    const { hue, saturation, lightness } = convertRGBToHSL(red, green, blue);
+
+    document.getElementById('hue').value = hue;
+    document.getElementById('saturation').value = saturation;
+    document.getElementById('lightness').value = lightness;
 
     document.getElementById('hex').value = hexValue;
-    document.getElementById('rgb').value = `rgb(${r}, ${g}, ${b})`;
-    document.getElementById('hsl').value = `hsl(${h}, ${s}%, ${l}%)`;
+    document.getElementById('rgb').value = `rgb(${red}, ${green}, ${blue})`;
+    document.getElementById('hsl').value = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
+function storageClick(hexColor) {
+    selectPalette(hexColor);
+
+}
+
+function saveColor() {
+    const selectedColor = document.getElementById('color-preview').style.backgroundColor;
+    const rgbMatch = selectedColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    let hexColor = selectedColor;
+    if (rgbMatch) {
+        const r = parseInt(rgbMatch[1], 10);
+        const g = parseInt(rgbMatch[2], 10);
+        const b = parseInt(rgbMatch[3], 10);
+        hexColor = convertRGBToHex(r, g, b);
+    }
+
+    const palettes = document.querySelectorAll('.stored-palettes .color');
+    const emptyPalette = Array.from(palettes).find(palette => !palette.style.backgroundColor);
+    if (emptyPalette) {
+        emptyPalette.style.backgroundColor = hexColor;
+        emptyPalette.setAttribute('onclick', `selectPalette('${hexColor}')`);
+        emptyPalette.dataset.color = hexColor; // Store the hex color in data attribute for easy access
+    } else {
+        console.log('No available empty palettes.');
+    }
+}
+
+function deleteColor() {
+    // Select all palette divs that have a background color set
+    const filledPalettes = Array.from(document.querySelectorAll('.stored-palettes .color'))
+                                .filter(palette => palette.style.backgroundColor !== '');
+    
+    // If there are filled palettes, clear the last one
+    if (filledPalettes.length > 0) {
+        const lastFilledPalette = filledPalettes[filledPalettes.length - 1];
+        lastFilledPalette.style.backgroundColor = ''; // Clear the color
+        lastFilledPalette.removeAttribute('onclick'); // Remove the onclick attribute to prevent function calls on empty palettes
+    } else {
+        console.log('No colors to delete.');
+    }
+}
+
+document.querySelectorAll('.stored-palettes .color').forEach(color => {
+    color.addEventListener('click', () => {
+        // Toggle 'selected' class or any other indication that a color is selected
+        color.classList.toggle('selected');
+    });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.color-picker input[type=range]').forEach(input => {
         input.addEventListener('input', () => {
-            const h = parseInt(document.getElementById('hue').value);
-            const s = parseInt(document.getElementById('saturation').value);
-            const l = parseInt(document.getElementById('lightness').value);
-            updateInterface(h, s, l);
+            const hue = parseInt(document.getElementById('hue').value);
+            const saturation = parseInt(document.getElementById('saturation').value);
+            const lightness = parseInt(document.getElementById('lightness').value);
+            updateInterface(hue, saturation, lightness);
         });
     });
 
     document.getElementById('hex').addEventListener('input', updateFromHex);
-    document.getElementById('rgb').addEventListener('input', updateFromRgb);
-    document.getElementById('hsl').addEventListener('input', updateFromHsl);
+    document.getElementById('rgb').addEventListener('input', updateFromRGB);
+    document.getElementById('hsl').addEventListener('input', updateFromHSL);
 });

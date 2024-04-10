@@ -93,7 +93,7 @@ label, p, h1, input, button, h2{
 
 .buttons-for-palette {
     display: flex; 
-    gap: 0; 
+    gap: 10px; 
     flex-direction: row; 
     justify-content: center; 
     margin-top: 20px; 
@@ -102,7 +102,6 @@ label, p, h1, input, button, h2{
 .buttons-for-palette button {
     display: flex;
     justify-content: center; /* Spread the buttons */
-    width: 100%; /* Take up full width from hex to hsl */
     border: 1px solid hsla(0, 4%, 37%, 60%); /* Gray border as requested */
     flex: 1; 
     white-space: nowrap;
@@ -130,13 +129,11 @@ label, p, h1, input, button, h2{
     min-width: 60px;
   }
   
-  .color-sample {
+  .color {
     width: 50%; /* 50% for a square layout */
     height: 50%; /* Same as width to maintain aspect ratio */
     float: left; /* Align samples in a row */
   }
-
-
 .palette-title {
     text-align: center;
     margin-bottom: 20px; /* Spacing between the title and the palettes */
@@ -144,3 +141,14 @@ label, p, h1, input, button, h2{
     margin-right: auto; 
 }
 
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 50px;
+}
+
+.stored-palettes {
+    display: flex;
+    flex-direction: column;
+}

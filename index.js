@@ -133,7 +133,7 @@ function resetColor() {
     updateInterface(0, 100, 50);
 }
 
-function selectPalette(hexValue) {
+function displayPalette(hexValue) {
     console.log("Palette selected:", hexValue); // Debugging line
     document.getElementById('color-preview').style.backgroundColor = hexValue;
     const { red, green, blue } = convertHexToRGB(hexValue);
@@ -152,7 +152,7 @@ function selectPalette(hexValue) {
 
 function storageClick(hexValue) {
     console.log(storageValue);
-    selectPalette(hexValue);
+    displayPalette(hexValue);
 
 }
 
@@ -167,7 +167,7 @@ function complementaryClick(rgbValue) {
         hexValue = convertRGBToHex(r, g, b);
     }
 
-    selectPalette(hexValue);
+    displayPalette(hexValue);
 }
 
 function saveColor() {
@@ -185,7 +185,7 @@ function saveColor() {
     const emptyPalette = Array.from(palettes).find(palette => !palette.style.backgroundColor);
     if (emptyPalette) {
         emptyPalette.style.backgroundColor = hexColor;
-        emptyPalette.setAttribute('onclick', `selectPalette('${hexColor}')`);
+        emptyPalette.setAttribute('onclick', `displayPalette('${hexColor}')`);
         emptyPalette.dataset.color = hexColor; 
     } else {
         console.log('No available empty palettes.');

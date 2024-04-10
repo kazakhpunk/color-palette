@@ -15,7 +15,7 @@ html, body {
     margin-top: 20px;
 }
 
-.sidebar {
+.leftAside {
     float: left; /* Moves the sidebar to the right */
     margin-right: 50px;
 }
@@ -31,7 +31,7 @@ main {
 }
 
 
-.palette-title {
+.paletteTitle {
     text-align: center;
 }
 
@@ -117,13 +117,13 @@ h1 {         /* Or any desired width */
     padding: 10px;
 }
 
-.palettes-box {
+.palettes-wrapper {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 3 columns of equal width */
     grid-gap: 10px; /* Space between palettes */
   }
   
-  .palette {
+  .grid {
     cursor: pointer;
     border: 1px solid #ccc;
     border-radius: 5px; /* Optional: if you want rounded corners */
@@ -138,7 +138,8 @@ h1 {         /* Or any desired width */
     height: 50%; /* Same as width to maintain aspect ratio */
     float: left; /* Align samples in a row */
   }
-.palette-title {
+
+.paletteTitle {
     text-align: center;
     margin-bottom: 20px; /* Spacing between the title and the palettes */
     margin-left: auto;
@@ -171,7 +172,7 @@ h1 {         /* Or any desired width */
 }
 
 /* Ensure each complementary color palette has the same style as your storage palette */
-.complementary .palette {
+.complementary .grid {
     cursor: pointer;
     border: 1px solid #ccc;
     border-radius: 5px;

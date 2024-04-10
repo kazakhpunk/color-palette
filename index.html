@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="star.png" type="image/icon type">
     <title>Color Palette</title>
 </head>
 <body>
@@ -12,80 +13,80 @@
             <p><i>"Color is the place where our brain and the universe meet", Paul Klee</i></p>
             <p><i>Created by Nursultan Sagyntay</i></p>
         </div>
-        <aside class = "sidebar">
-            <h2 class = "palette-title">Premade Palettes</h2>
-            <div class = "palettes-box">
-                <div class="palette">
-                    <div class="color" style="background-color: #ff0000;" onclick="selectPalette('#ff0000')"></div>
-                    <div class="color" style="background-color: #00ff00;" onclick="selectPalette('#00ff00')"></div>
-                    <div class="color" style="background-color: #0000ff;" onclick="selectPalette('#0000ff')"></div>
-                    <div class="color" style="background-color: #ff00ff;" onclick="selectPalette('#ff00ff')"></div>
+        <aside class = "leftAside">
+            <h2 class = "paletteTitle">Premade Palettes</h2>
+            <div class = "palettes-wrapper">
+                <div class="grid">
+                    <div class="color" style="background-color: #ff0000;" onclick="displayPalette('#ff0000')"></div>
+                    <div class="color" style="background-color: #00ff00;" onclick="displayPalette('#00ff00')"></div>
+                    <div class="color" style="background-color: #0000ff;" onclick="displayPalette('#0000ff')"></div>
+                    <div class="color" style="background-color: #ff00ff;" onclick="displayPalette('#ff00ff')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #1C1678;" onclick="selectPalette('#1C1678')"></div>
-                    <div class="color" style="background-color: #8576FF;" onclick="selectPalette('#8576FF')"></div>
-                    <div class="color" style="background-color: #7BC9FF;" onclick="selectPalette('#7BC9FF')"></div>
-                    <div class="color" style="background-color: #A3FFD6;" onclick="selectPalette('#A3FFD6')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #1C1678;" onclick="displayPalette('#1C1678')"></div>
+                    <div class="color" style="background-color: #8576FF;" onclick="displayPalette('#8576FF')"></div>
+                    <div class="color" style="background-color: #7BC9FF;" onclick="displayPalette('#7BC9FF')"></div>
+                    <div class="color" style="background-color: #A3FFD6;" onclick="displayPalette('#A3FFD6')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #DBA979;" onclick="selectPalette('#DBA979')"></div>
-                    <div class="color" style="background-color: #ECCA9C;" onclick="selectPalette('#ECCA9C')"></div>
-                    <div class="color" style="background-color: #E8EFCF;" onclick="selectPalette('#E8EFCF')"></div>
-                    <div class="color" style="background-color: #AFD198;" onclick="selectPalette('#AFD198')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #DBA979;" onclick="displayPalette('#DBA979')"></div>
+                    <div class="color" style="background-color: #ECCA9C;" onclick="displayPalette('#ECCA9C')"></div>
+                    <div class="color" style="background-color: #E8EFCF;" onclick="displayPalette('#E8EFCF')"></div>
+                    <div class="color" style="background-color: #AFD198;" onclick="displayPalette('#AFD198')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #6C0345;" onclick="selectPalette('#6C0345')"></div>
-                    <div class="color" style="background-color: #DC6B19;" onclick="selectPalette('#DC6B19')"></div>
-                    <div class="color" style="background-color: #F7C566;" onclick="selectPalette('#F7C566')"></div>
-                    <div class="color" style="background-color: #FFF8DC;" onclick="selectPalette('#FFF8DC')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #6C0345;" onclick="displayPalette('#6C0345')"></div>
+                    <div class="color" style="background-color: #DC6B19;" onclick="displayPalette('#DC6B19')"></div>
+                    <div class="color" style="background-color: #F7C566;" onclick="displayPalette('#F7C566')"></div>
+                    <div class="color" style="background-color: #FFF8DC;" onclick="displayPalette('#FFF8DC')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #003C43;" onclick="selectPalette('#003C43')"></div>
-                    <div class="color" style="background-color: #135D66;" onclick="selectPalette('#135D66')"></div>
-                    <div class="color" style="background-color: #77B0AA;" onclick="selectPalette('#77B0AA')"></div>
-                    <div class="color" style="background-color: #E3FEF7;" onclick="selectPalette('#E3FEF7')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #003C43;" onclick="displayPalette('#003C43')"></div>
+                    <div class="color" style="background-color: #135D66;" onclick="displayPalette('#135D66')"></div>
+                    <div class="color" style="background-color: #77B0AA;" onclick="displayPalette('#77B0AA')"></div>
+                    <div class="color" style="background-color: #E3FEF7;" onclick="displayPalette('#E3FEF7')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #A79277;" onclick="selectPalette('#A79277')"></div>
-                    <div class="color" style="background-color: #D1BB9E;" onclick="selectPalette('#D1BB9E')"></div>
-                    <div class="color" style="background-color: #EAD8C0;" onclick="selectPalette('#EAD8C0')"></div>
-                    <div class="color" style="background-color: #FFF2E1;" onclick="selectPalette('#FFF2E1')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #A79277;" onclick="displayPalette('#A79277')"></div>
+                    <div class="color" style="background-color: #D1BB9E;" onclick="displayPalette('#D1BB9E')"></div>
+                    <div class="color" style="background-color: #EAD8C0;" onclick="displayPalette('#EAD8C0')"></div>
+                    <div class="color" style="background-color: #FFF2E1;" onclick="displayPalette('#FFF2E1')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #FFEBB2;" onclick="selectPalette('#FFEBB2')"></div>
-                    <div class="color" style="background-color: #E59BE9;" onclick="selectPalette('#E59BE9')"></div>
-                    <div class="color" style="background-color: #D862BC;" onclick="selectPalette('#D862BC')"></div>
-                    <div class="color" style="background-color: #8644A2;" onclick="selectPalette('#8644A2')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #FFEBB2;" onclick="displayPalette('#FFEBB2')"></div>
+                    <div class="color" style="background-color: #E59BE9;" onclick="displayPalette('#E59BE9')"></div>
+                    <div class="color" style="background-color: #D862BC;" onclick="displayPalette('#D862BC')"></div>
+                    <div class="color" style="background-color: #8644A2;" onclick="displayPalette('#8644A2')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #86469C;" onclick="selectPalette('#86469C')"></div>
-                    <div class="color" style="background-color: #BC7FCD;" onclick="selectPalette('#BC7FCD')"></div>
-                    <div class="color" style="background-color: #FB9AD1;" onclick="selectPalette('#FB9AD1')"></div>
-                    <div class="color" style="background-color: #FFCDEA;" onclick="selectPalette('#FFCDEA')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #86469C;" onclick="displayPalette('#86469C')"></div>
+                    <div class="color" style="background-color: #BC7FCD;" onclick="displayPalette('#BC7FCD')"></div>
+                    <div class="color" style="background-color: #FB9AD1;" onclick="displayPalette('#FB9AD1')"></div>
+                    <div class="color" style="background-color: #FFCDEA;" onclick="displayPalette('#FFCDEA')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #A34343;" onclick="selectPalette('#A34343')"></div>
-                    <div class="color" style="background-color: #E9C874;" onclick="selectPalette('#E9C874')"></div>
-                    <div class="color" style="background-color: #FBF8DD;" onclick="selectPalette('#FBF8DD')"></div>
-                    <div class="color" style="background-color: #C0D6E8;" onclick="selectPalette('#C0D6E8')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #A34343;" onclick="displayPalette('#A34343')"></div>
+                    <div class="color" style="background-color: #E9C874;" onclick="displayPalette('#E9C874')"></div>
+                    <div class="color" style="background-color: #FBF8DD;" onclick="displayPalette('#FBF8DD')"></div>
+                    <div class="color" style="background-color: #C0D6E8;" onclick="displayPalette('#C0D6E8')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #FFF7FC;" onclick="selectPalette('#FFF7FC')"></div>
-                    <div class="color" style="background-color: #8B93FF;" onclick="selectPalette('#8B93FF')"></div>
-                    <div class="color" style="background-color: #5755FE;" onclick="selectPalette('#5755FE')"></div>
-                    <div class="color" style="background-color: #FF71CD;" onclick="selectPalette('#FF71CD')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #FFF7FC;" onclick="displayPalette('#FFF7FC')"></div>
+                    <div class="color" style="background-color: #8B93FF;" onclick="displayPalette('#8B93FF')"></div>
+                    <div class="color" style="background-color: #5755FE;" onclick="displayPalette('#5755FE')"></div>
+                    <div class="color" style="background-color: #FF71CD;" onclick="displayPalette('#FF71CD')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #FFAF45;" onclick="selectPalette('#FFAF45')"></div>
-                    <div class="color" style="background-color: #FB6D48;" onclick="selectPalette('#FB6D48')"></div>
-                    <div class="color" style="background-color: #D74B76;" onclick="selectPalette('#D74B76')"></div>
-                    <div class="color" style="background-color: #673F69;" onclick="selectPalette('#673F69')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #FFAF45;" onclick="displayPalette('#FFAF45')"></div>
+                    <div class="color" style="background-color: #FB6D48;" onclick="displayPalette('#FB6D48')"></div>
+                    <div class="color" style="background-color: #D74B76;" onclick="displayPalette('#D74B76')"></div>
+                    <div class="color" style="background-color: #673F69;" onclick="displayPalette('#673F69')"></div>
                 </div>
-                <div class="palette">
-                    <div class="color" style="background-color: #FFF67E;" onclick="selectPalette('#FFF67E')"></div>
-                    <div class="color" style="background-color: #BFEA7C;" onclick="selectPalette('#BFEA7C')"></div>
-                    <div class="color" style="background-color: #9BCF53;" onclick="selectPalette('#9BCF53')"></div>
-                    <div class="color" style="background-color: #416D19;" onclick="selectPalette('#416D19')"></div>
+                <div class="grid">
+                    <div class="color" style="background-color: #FFF67E;" onclick="displayPalette('#FFF67E')"></div>
+                    <div class="color" style="background-color: #BFEA7C;" onclick="displayPalette('#BFEA7C')"></div>
+                    <div class="color" style="background-color: #9BCF53;" onclick="displayPalette('#9BCF53')"></div>
+                    <div class="color" style="background-color: #416D19;" onclick="displayPalette('#416D19')"></div>
                 </div>
             </div>
         </aside>
@@ -121,75 +122,75 @@
     </main>
     <footer class = "footer-container">
         <div class = "stored-palettes">
-            <h2 class = "palette-title">Palettes Storage</h2>
-            <div class = "palettes-box">
-                <div class = "palette">
+            <h2 class = "paletteTitle">Palettes Storage</h2>
+            <div class = "palettes-wrapper">
+                <div class = "grid">
                     <div class="color" id="addedColor1" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor2" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor3" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor4" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor5" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor6" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor7" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor8" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor9" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor10" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor11" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor12" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor13" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor14" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor15" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor16" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor17" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor18" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor19" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor20" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor21" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor22" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor23" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor24" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor25" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor26" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor27" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor28" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor29" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor30" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor31" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor32" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor33" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor34" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor35" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor36" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor37" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor38" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor39" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor40" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor41" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor42" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor43" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor44" onclick = "storageClick(this.style.backgroundColor)"></div>
                 </div>
-                <div class = "palette">
+                <div class = "grid">
                     <div class="color" id="addedColor45" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor46" onclick = "storageClick(this.style.backgroundColor)"></div>
                     <div class="color" id="addedColor47" onclick = "storageClick(this.style.backgroundColor)"></div>
@@ -198,11 +199,11 @@
             </div>
         </div>
         <div class = "complementary-wrapper">
-            <h2 class = "palette-title">Complementary colors</h2>
-            <div class = "paletttes-box complementary">
-                <div class = "palette" id = "complementary1" onclick = "complementaryClick(this.style.backgroundColor)" style="background-color: hsl(90, 100%, 50%);"></div>
-                <div class = "palette" id = "complementary2" onclick = "complementaryClick(this.style.backgroundColor)" style="background-color: hsl(180, 100%, 50%);"></div>
-                <div class = "palette" id = "complementary3" onclick = "complementaryClick(this.style.backgroundColor)" style="background-color: hsl(270, 100%, 50%);"></div>
+            <h2 class = "paletteTitle">Complementary colors</h2>
+            <div class = "paletttes-wrapper complementary">
+                <div class = "grid" id = "complementary1" onclick = "complementaryClick(this.style.backgroundColor)" style="background-color: hsl(90, 100%, 50%);"></div>
+                <div class = "grid" id = "complementary2" onclick = "complementaryClick(this.style.backgroundColor)" style="background-color: hsl(180, 100%, 50%);"></div>
+                <div class = "grid" id = "complementary3" onclick = "complementaryClick(this.style.backgroundColor)" style="background-color: hsl(270, 100%, 50%);"></div>
             </div>
         </div>
     </footer>

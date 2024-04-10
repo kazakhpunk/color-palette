@@ -2,9 +2,10 @@
 
 Проект "Color Palette" позволяет использовать, создавать и редактировать цветовые палитры. Приложение было сделано на HTML, CSS и JavaScript. 
 
-## Ссылка на вебсайт: https://kazakhpunk.github.io/color-palette/
+## Ссылка на вебсайт
+https://kazakhpunk.github.io/color-palette/
 
-## Основные функции:
+## Основные функции
 
 - **Premade Palettes**: Предопределенные цветовые палитры.
 - **Dynamic Complementary Colors**: Создает три комплементарных цвета к любому выбранному, используя градусную меру Hue.
@@ -26,5 +27,5 @@
 
 ## Установка
 
-1. Склонировать репозиторий проекта (git clone https://github.com/kazakhpunk/color-palette.git)
+1. Склонировать репозиторий проекта (git clone https://github.com/kazakhpunk/color-palette.git). 
 2. Открыть файл "index.html" в любом браузере.

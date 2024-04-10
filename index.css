@@ -30,6 +30,7 @@ main {
     margin-left: 50px;
 }
 
+
 .palette-title {
     text-align: center;
 }
@@ -47,6 +48,10 @@ label, p, h1, input, button, h2{
     align-items: center;
     justify-content: center;
     margin: 60px;
+}
+
+h1 {
+    margin-left: 30%;
 }
 
 .picker-inputs{
@@ -146,9 +151,32 @@ label, p, h1, input, button, h2{
     align-items: center;
     justify-content: flex-start;
     margin-left: 50px;
+    margin-right: 50px;
 }
 
 .stored-palettes {
     display: flex;
     flex-direction: column;
+}
+
+.complementary-wrapper {
+    margin-top: 20px; /* or as needed */
+    margin-left: auto;
+}
+
+.complementary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+    grid-gap: 10px; /* Adjust gap as needed */
+}
+
+/* Ensure each complementary color palette has the same style as your storage palette */
+.complementary .palette {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    min-width: 60px; /* Adjust as needed */
+    height: 80px; /* Adjust height as needed to match your storage palette */
 }

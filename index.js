@@ -166,22 +166,20 @@ function saveColor() {
     if (emptyPalette) {
         emptyPalette.style.backgroundColor = hexColor;
         emptyPalette.setAttribute('onclick', `selectPalette('${hexColor}')`);
-        emptyPalette.dataset.color = hexColor; // Store the hex color in data attribute for easy access
+        emptyPalette.dataset.color = hexColor; 
     } else {
         console.log('No available empty palettes.');
     }
 }
 
 function deleteColor() {
-    // Select all palette divs that have a background color set
     const filledPalettes = Array.from(document.querySelectorAll('.stored-palettes .color'))
                                 .filter(palette => palette.style.backgroundColor !== '');
     
-    // If there are filled palettes, clear the last one
     if (filledPalettes.length > 0) {
         const lastFilledPalette = filledPalettes[filledPalettes.length - 1];
-        lastFilledPalette.style.backgroundColor = ''; // Clear the color
-        lastFilledPalette.removeAttribute('onclick'); // Remove the onclick attribute to prevent function calls on empty palettes
+        lastFilledPalette.style.backgroundColor = ''; 
+        lastFilledPalette.removeAttribute('onclick'); 
     } else {
         console.log('No colors to delete.');
     }
@@ -189,7 +187,6 @@ function deleteColor() {
 
 document.querySelectorAll('.stored-palettes .color').forEach(color => {
     color.addEventListener('click', () => {
-        // Toggle 'selected' class or any other indication that a color is selected
         color.classList.toggle('selected');
     });
 });
